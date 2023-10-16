@@ -51,4 +51,3 @@ while True:
     lightSensor(0)
     blinkLED(4, 11, 0.2)
     soundSensor(1,11)
-    #time.sleep(0.5)
