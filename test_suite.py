@@ -18,32 +18,37 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 # get reading from adc 
 # mcp.read_adc(adc_channel)
 
-while True: 
-    for i in range(5):
-        GPIO.output(11, GPIO.HIGH)
-        time.sleep(0.25)
-        GPIO.output(11, GPIO.LOW)
-        time.sleep(0.25)
+def blinkLED(times, pin, interval):
+    for i in range(times):
+        GPIO.output(pin, GPIO.HIGH)
+        time.sleep(interval/2)
+        GPIO.output(pin, GPIO.LOW)
+        time.sleep(interval/2)
+
+def lightSensor(channel):
     for i in range(50):
-        print(mcp.read_adc(0))
-        if(mcp.read_adc(0) > 500): #light sensor
+        print(mcp.read_adc(channel))
+        if(mcp.read_adc(channel) > 150): #light sensor
             print("light")
         else:
             print("dark")
         time.sleep(0.1)
-    for i in range(4):
-        GPIO.output(11, GPIO.HIGH)
-        time.sleep(0.1)
-        GPIO.output(11, GPIO.LOW)
-        time.sleep(0.1)
+
+def soundSensor(channel, pin):
     for i in range(50):
-        print(mcp.read_adc(1))
-        if(mcp.read_adc(1) > 500): #sound sensor
+        print(mcp.read_adc(channel))
+        if(mcp.read_adc(channel) > 500): #sound sensor
             #print("clap")
-            GPIO.output(11, GPIO.HIGH)
+            GPIO.output(pin, GPIO.HIGH)
             time.sleep(0.1)
-            GPIO.output(11, GPIO.LOW)
+            GPIO.output(pin, GPIO.LOW)
             #time.sleep(0.1)
         else:
             print("dark")
             time.sleep(0.1)
+while True: 
+    blinkLED(5, 11, 0.5)
+    lightSensor(0)
+    blinkLED(4, 11, 0.2)
+    soundSensor(1,11)
+    time.sleep(0.5)
