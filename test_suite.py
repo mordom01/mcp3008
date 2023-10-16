@@ -44,7 +44,7 @@ def soundSensor(channel, pin):
             GPIO.output(pin, GPIO.LOW)
             #time.sleep(0.1)
         else:
-            print("dark")
+            #print("dark")
             time.sleep(0.1)
 while True: 
     blinkLED(5, 11, 0.5)
