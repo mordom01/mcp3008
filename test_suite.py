@@ -8,7 +8,7 @@ GPIO.setmode(GPIO.BOARD)
 chan_list = [11]
 GPIO.setup(chan_list, GPIO.OUT)
 #Following commands control the state of the output
-pin = 11
+#pin = 11
 
 
 # Hardware SPI configuration:
