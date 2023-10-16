@@ -6,7 +6,7 @@ import Adafruit_MCP3008
 #using physical pin 11 to blink an LED
 GPIO.setmode(GPIO.BOARD)
 chan_list = [11]
-GPIO.setup(chan_list, GPIO.OUT)
+#GPIO.setup(chan_list, GPIO.OUT)
 #Following commands control the state of the output
 #pin = 11
 
