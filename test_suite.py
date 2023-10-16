@@ -37,7 +37,7 @@ def lightSensor(channel):
 def soundSensor(channel, pin):
     for i in range(50):
         print(mcp.read_adc(channel))
-        if(mcp.read_adc(channel) > 150): #sound sensor
+        if(mcp.read_adc(channel) > 500): #sound sensor
             #print("clap")
             GPIO.output(pin, GPIO.HIGH)
             time.sleep(0.1)
