@@ -19,6 +19,9 @@ mcp = Adafruit_MCP3008.MCP3008(spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE))
 # mcp.read_adc(adc_channel)
 
 while True: 
-    GPIO.output(11, GPIO.HIGH)
-    time.sleep(0.5) 
-    GPIO.output(11, GPIO.LOW)
+    for i in range(5):
+        GPIO.output(11, GPIO.HIGH)
+        time.sleep(0.25)
+        GPIO.output(11, GPIO.LOW)
+        time.sleep(0.25)
+    #for i in range(50):
