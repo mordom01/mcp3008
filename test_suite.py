@@ -24,4 +24,26 @@ while True:
         time.sleep(0.25)
         GPIO.output(11, GPIO.LOW)
         time.sleep(0.25)
-    #for i in range(50):
+    for i in range(50):
+        print(mcp.read_adc(0))
+        if(mcp.read_adc(0) > 500): #light sensor
+            print("light")
+        else:
+            print("dark")
+        time.sleep(0.1)
+    for i in range(4):
+        GPIO.output(11, GPIO.HIGH)
+        time.sleep(0.1)
+        GPIO.output(11, GPIO.LOW)
+        time.sleep(0.1)
+    for i in range(50):
+        print(mcp.read_adc(1))
+        if(mcp.read_adc(1) > 500): #sound sensor
+            #print("clap")
+            GPIO.output(11, GPIO.HIGH)
+            time.sleep(0.1)
+            GPIO.output(11, GPIO.LOW)
+            #time.sleep(0.1)
+        else:
+            print("dark")
+            time.sleep(0.1)
